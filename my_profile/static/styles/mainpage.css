@@ -1,0 +1,55 @@
+body {
+    background-color: #aec4e6;
+}
+
+.custom {
+	font-family: Courier;
+	color: white;
+	font-size:50px;
+}
+
+.carousel {
+  width:1200px;
+  height:500px;
+}
+
+.carousel-control-prev{
+width:80px;
+  height:80px;
+}
+.carousel-control-next{
+width:80px;
+  height:80px;
+}
+
+.buttonP{
+ position: fixed;
+  top: 620px;
+  left: 400px;
+  width: 240px;
+  height: 90px;
+  background: #1f1f1f;
+  padding: 20px;
+  color: #fff;
+  border: 1px solid #444;
+  border-left: 1px solid #444;
+  border-right: 1px solid #111;
+  border-bottom: 1px solid #111;
+  box-sizing: border-box;
+}
+
+.buttonN{
+ position: fixed;
+  top: 620px;
+  left: 800px;
+  width: 240px;
+  height: 90px;
+  background: #1f1f1f;
+  padding: 20px;
+  color: #fff;
+  border: 1px solid #444;
+  border-left: 1px solid #444;
+  border-right: 1px solid #111;
+  border-bottom: 1px solid #111;
+  box-sizing: border-box;
+}
