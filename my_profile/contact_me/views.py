@@ -13,15 +13,17 @@ def contact_method():
     # global keyvalue
     keyvalue = os.getenv('test_key')
     if form.validate_on_submit():
+        from_email = os.getenv('email')
+        to_email = os.getenv('to_email')
         keyvalue = os.getenv('test_key')
+        name = form.name.data
         user_email = form.email.data
+        designation = form.designation.data
         feedback = form.feedback.data
-        print(user_email, feedback)
-        user = Users(user_email, feedback)
-        print("User entered the following Data: ", user)
+        form.send_mail(user_email=user_email, feedback=feedback, designation=designation, keyvalue=keyvalue,
+                       from_email=from_email, to_email=to_email, name=name)
         #db.session.add(user)
         #db.session.commit()
         flash("Thank you for your feedback.")
-        print(keyvalue)
         # return redirect(url_for('index'))
-    return render_template('contact.html', form=form, keyvalue=keyvalue)
+    return render_template('contact.html', form=form)
