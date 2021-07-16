@@ -2,12 +2,32 @@
 {% extends "base.html" %}
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    {% block content %}
-      <h3> Contacts Page</h3>
-    {% endblock %}
+{% block content %}
+<div class="container">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.email.label }} {{ form.email }}<br>
+        {{ form.feedback.label }} {{ form.feedback }}<br>
+        {{ form.submit(class="btn btn-primary mb-3") }}
+    </form>
+</div>
+
+<h1> The key value is {{ keyvalue }}</h1>
+
+{% for mes in get_flashed_messages() %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" class="fade close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{mes}}   <!-- prints our custom message here which is passed from py file -->
+</div>
+{% endfor %}
+
+{% endblock %}
 </body>
 </html>
