@@ -22,6 +22,14 @@
         <a class="nav-item nav-link" href="{{ url_for('academics.academics_method') }}">Academics</a>
         <a class="nav-item nav-link" href="{{ url_for('contact.contact_method') }}">Contact Me</a>
 
+
+
+        {% if current_user.is_authenticated %}
+        <a class="nav-item nav-link" href="{{ url_for('user.logout') }}">Logout</a>
+        {% else %}
+        <a class="nav-item nav-link" href="{{ url_for('user.login') }}">Login</a>
+        {% endif %}
+
     </nav>
 
     {% block content %}
