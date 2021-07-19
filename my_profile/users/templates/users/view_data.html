@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Data Page</title>
+</head>
+<body>
+{% block content %}
+<div class="container">
+    <h2 align="center"> Viewing all the feedback entries </h2>
+    <table class="table table-dark table-hover">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in data %}
+    <tr>
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.email }}</td>
+        <td>{{ item.feedback }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.designation }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+    </div>
+</body>
+</html>

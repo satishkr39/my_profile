@@ -22,8 +22,9 @@ def contact_method():
         feedback = form.feedback.data
         form.send_mail(user_email=user_email, feedback=feedback, designation=designation, keyvalue=keyvalue,
                        from_email=from_email, to_email=to_email, name=name)
-        #db.session.add(user)
-        #db.session.commit()
+        user = Users(email=user_email, name=name, designation=designation, feedback= feedback)
+        db.session.add(user)
+        db.session.commit()
         flash("Thank you for your feedback.")
         # return redirect(url_for('index'))
     return render_template('contact.html', form=form)
