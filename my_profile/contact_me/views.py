@@ -22,6 +22,7 @@ def contact_method():
         feedback = form.feedback.data
         form.send_mail(user_email=user_email, feedback=feedback, designation=designation, keyvalue=keyvalue,
                        from_email=from_email, to_email=to_email, name=name)
+        form.send_mail_response(keyvalue= keyvalue,from_email=from_email, to_email=form.email.data)
         user = Users(email=user_email, name=name, designation=designation, feedback= feedback)
         db.session.add(user)
         db.session.commit()

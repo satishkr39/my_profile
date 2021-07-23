@@ -11,9 +11,8 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = Admin.query.filter_by(email_id=form.username.data).first()
-        if  user is not None and user.password == form.password.data:
+        if  user is not None and user.check_password(form.password.data):
             login_user(user)  # in-built function for flask_login_manager.
-            print("Inside Login")
             # flash("you are login now")
             all_data = Users.query.all()  # get all the data
             return render_template('view_data.html', data=all_data)
